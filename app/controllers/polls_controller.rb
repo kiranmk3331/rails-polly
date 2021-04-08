@@ -7,7 +7,8 @@ class PollsController < ApplicationController
   def show
     poll = Poll.find(params[:id])
     options = poll.options
-    render status: :ok, json: { poll: poll, options: options }
+    total_clicks = poll.options.sum(:click_count)
+    render status: :ok, json: { poll: poll, options: options, total_clicks: total_clicks }
   end
 
   def create
