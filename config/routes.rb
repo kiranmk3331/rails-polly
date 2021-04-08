@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # delete "/polls/:id", to: "polls#destroy"
 
   resources :polls
+  put "/polls/:poll_id/options/:option_id", to: "options#count"
 end

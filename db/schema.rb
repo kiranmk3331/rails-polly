@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_140847) do
+ActiveRecord::Schema.define(version: 2021_04_08_103350) do
 
   create_table "options", force: :cascade do |t|
     t.text "title"
     t.integer "poll_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "click_count", default: 0
     t.index ["poll_id"], name: "index_options_on_poll_id"
   end
 
