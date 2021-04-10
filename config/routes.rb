@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   resources :polls
   put "/polls/:poll_id/options/:option_id", to: "options#count"
+
+  root "home#index"
+  get "*path", to: "home#index", via: :all
 end

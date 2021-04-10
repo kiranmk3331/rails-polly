@@ -1,5 +1,4 @@
 import axios from "axios";
-import { POLLS_URL } from "./utils";
 
 const list = () => axios.get("/polls");
 
