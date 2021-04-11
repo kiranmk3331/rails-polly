@@ -5,7 +5,8 @@ import Input from "components/Input";
 import Button from "components/Button";
 const SignupForm = ({
   handleSubmit,
-  setName,
+  setFirstName,
+  setLastName,
   setEmail,
   setPassword,
   loading,
@@ -35,9 +36,14 @@ const SignupForm = ({
         </div>
         <form className="mt-8" onSubmit={handleSubmit}>
           <Input
-            label="Name"
+            label="First Name"
             placeholder="Oliver"
-            onChange={e => setName(e.target.value)}
+            onChange={e => setFirstName(e.target.value)}
+          />
+          <Input
+            label="Last Name"
+            placeholder="Smith"
+            onChange={e => setLastName(e.target.value)}
           />
           <Input
             type="email"

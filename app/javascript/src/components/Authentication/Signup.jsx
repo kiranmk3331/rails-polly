@@ -2,10 +2,11 @@ import React, { useState } from "react";
 
 import SignupForm from "components/Authentication/Form/SignupForm";
 import authApi from "apis/auth";
-import { logger } from "common/logger";
+import Logger from "js-logger";
 
 const Signup = ({ history }) => {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -17,7 +18,8 @@ const Signup = ({ history }) => {
       setLoading(true);
       await authApi.signup({
         user: {
-          name,
+          first_name: firstName,
+          last_name: lastName,
           email,
           password,
           password_confirmation: passwordConfirmation,
@@ -27,12 +29,13 @@ const Signup = ({ history }) => {
       history.push("/");
     } catch (error) {
       setLoading(false);
-      logger.error(error);
+      Logger.error(error);
     }
   };
   return (
     <SignupForm
-      setName={setName}
+      setFirstName={setFirstName}
+      setLastName={setLastName}
       setEmail={setEmail}
       setPassword={setPassword}
       setPasswordConfirmation={setPasswordConfirmation}

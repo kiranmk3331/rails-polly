@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # get "/polls/:id", to: "polls#show"
   # post "/polls", to: "polls#create"
   # delete "/polls/:id", to: "polls#destroy"
-
+  resources :users
   resources :polls
   put "/polls/:poll_id/options/:option_id", to: "options#count"
 

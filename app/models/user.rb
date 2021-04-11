@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # has_many :responses, dependent: :destroy
 
   has_secure_password
-  has_secure_token :authentication_token
+  # has_secure_token :authentication_token
 
   validates :email, presence: true,
                     uniqueness: true,

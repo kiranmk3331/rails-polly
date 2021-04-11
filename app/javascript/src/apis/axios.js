@@ -1,4 +1,5 @@
 import axios from "axios";
+import Toastr from "components/Common/Toastr";
 
 export const setAuthHeaders = (setLoading = () => null) => {
   axios.defaults.headers = {
