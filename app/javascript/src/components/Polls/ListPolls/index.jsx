@@ -8,7 +8,7 @@ const ListPolls = ({ data }) => {
       {data.map(poll => (
         <li
           key={poll.id}
-          className="bg-purple-100 flex justify-between items-center py-4 px-2 border-b hover:bg-opacity-75"
+          className="bg-yellow-100 flex justify-between items-center py-4 px-2 border-b hover:bg-opacity-75"
         >
           <Link
             to={`/polls/${poll.id}/show`}
