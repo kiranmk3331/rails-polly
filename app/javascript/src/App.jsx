@@ -5,6 +5,7 @@ import { logger } from "common/logger";
 import { initializeLogger } from "common/logger";
 import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
+import Signup from "components/Authentication/Signup";
 
 const App = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/" render={() => <div>Home</div>} />
         <Route exact path="/about" render={() => <div>About</div>} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/signup" component={Signup} />
       </Switch>
     </Router>
   );
