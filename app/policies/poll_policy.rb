@@ -1,4 +1,5 @@
 class PollPolicy
+  
   attr_reader :user, :poll
 
   def initialize(user, poll)
@@ -22,3 +23,4 @@ class PollPolicy
     update?
   end
 end
+
