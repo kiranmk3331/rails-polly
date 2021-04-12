@@ -3,7 +3,7 @@ class Api::V1::PollsController < ApplicationController
   before_action :authenticate_user_using_x_auth_token, except: :index
   before_action :load_poll, only: %i[show update destroy]
   before_action :load_options, :load_responses, only: %i[show]
-  # before_action :authorize_poll, only: %i[update destroy]
+ 
 
   def index
     polls = Poll.all.order("created_at DESC")
@@ -24,12 +24,14 @@ class Api::V1::PollsController < ApplicationController
   end
 
   def show
+    
     render status: :ok, json: {
       poll: @poll, options: @options, responses: @responses,
     }
   end
 
   def update
+    authorize @poll
     if @poll.update(poll_params)
       render status: :ok, json: {
         notice: t("successfully_updated", entity: "Poll"),
@@ -41,6 +43,7 @@ class Api::V1::PollsController < ApplicationController
   end
 
   def destroy
+    authorize @poll
     if @poll.destroy
       render status: :ok, json: {
         notice: t("successfully_deleted", entity: "Poll"),
@@ -77,7 +80,5 @@ class Api::V1::PollsController < ApplicationController
     render json: { errors: errors }
   end
 
-  # def authorize_poll
-  #   authorize @poll
-  # end
+ 
 end
