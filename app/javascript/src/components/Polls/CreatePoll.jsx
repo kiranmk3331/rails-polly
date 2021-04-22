@@ -5,15 +5,16 @@ import { logger } from "common/logger";
 
 import Container from "components/Container";
 import PollForm from "components/Polls/Form/PollForm";
+import Logger from "js-logger";
 
 const CreatePoll = ({ history }) => {
   const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([
-    { content: "" },
-    { content: "" },
-    { content: "" },
-    { content: "" },
+    { title: "" },
+    { title: "" },
+    { title: "" },
+    { title: "" },
   ]);
 
   const handleSubmit = async event => {
@@ -23,7 +24,7 @@ const CreatePoll = ({ history }) => {
       setLoading(false);
       history.push("/");
     } catch (error) {
-      logger.error(error);
+      Logger.error(error);
       setLoading(false);
     }
   };

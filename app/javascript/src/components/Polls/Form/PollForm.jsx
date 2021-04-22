@@ -14,7 +14,7 @@ const PollForm = ({
 }) => {
   const handleSetOptions = (event, index) => {
     const data = [...options];
-    data[index].content = event.target.value;
+    data[index].title = event.target.value;
 
     setOptions(data);
   };
@@ -31,25 +31,25 @@ const PollForm = ({
         <Input
           label="Option one"
           placeholder="Option one"
-          value={options[0].content}
+          value={options[0].title}
           onChange={e => handleSetOptions(e, 0)}
         />
         <Input
           label="Option two"
           placeholder="Option two"
-          value={options[1].content}
+          value={options[1].title}
           onChange={e => handleSetOptions(e, 1)}
         />
         <Input
           label="Option three"
           placeholder="Option three"
-          value={options[2].content}
+          value={options[2].title}
           onChange={e => handleSetOptions(e, 2)}
         />
         <Input
           label="Option four"
           placeholder="Option four"
-          value={options[3].content}
+          value={options[3].title}
           onChange={e => handleSetOptions(e, 3)}
         />
       </div>

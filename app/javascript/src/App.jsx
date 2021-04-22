@@ -9,9 +9,13 @@ import Signup from "components/Authentication/Signup";
 import { either, isEmpty, isNil } from "ramda";
 import Login from "components/Authentication/Login";
 import PageLoader from "components/PageLoader";
+import CreatePoll from "components/Polls/CreatePoll";
+import EditPoll from "components/Polls/EditPoll";
+import NavBar from "components/NavBar";
 
 import PrivateRoute from "components/Common/PrivateRoute";
 import { getFromLocalStorage } from "./helpers/storage";
+import ShowPoll from "./components/Polls/ShowPoll";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,18 +40,40 @@ const App = () => {
   return (
     <Router>
       <ToastContainer />
-      <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-        <PrivateRoute
-          path="/"
-          redirectRoute="/login"
-          condition={isLoggedIn}
-          component={Dashboard}
-        />
-      </Switch>
+      <NavBar isLoggedIn={isLoggedIn} />
+      {isLoggedIn ? (
+        <AuthenticatedRoutes isLoggedIn={isLoggedIn} />
+      ) : (
+        <UnAuthenticatedRoutes isLoggedIn={isLoggedIn} />
+      )}
     </Router>
+  );
+};
+
+const AuthenticatedRoutes = ({ isLoggedIn }) => {
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Dashboard isLoggedIn={isLoggedIn} />
+      </Route>
+      <Route exact path="/polls/new" component={CreatePoll} />
+      <Route exact path="/polls/:id/show" component={ShowPoll} />
+      <Route exact path="/polls/:id/edit" component={EditPoll} />
+      {/* <Route exact path="*" component={NoMatch} /> */}
+    </Switch>
+  );
+};
+
+const UnAuthenticatedRoutes = ({ isLoggedIn }) => {
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Dashboard isLoggedIn={isLoggedIn} />
+      </Route>
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      <PrivateRoute path="*" redirectRoute="/login" />
+    </Switch>
   );
 };
 

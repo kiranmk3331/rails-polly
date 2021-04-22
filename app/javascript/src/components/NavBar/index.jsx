@@ -5,6 +5,7 @@ import authApi from "apis/auth";
 import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
 import { logger } from "common/logger";
 import { resetAuthTokens } from "apis/axios";
+import Logger from "js-logger";
 
 const NavBar = ({ isLoggedIn }) => {
   const userName = getFromLocalStorage("authUserFirstName");
@@ -22,7 +23,7 @@ const NavBar = ({ isLoggedIn }) => {
       resetAuthTokens();
       window.location.href = "/";
     } catch (error) {
-      logger.error(error);
+      Logger.error(error);
     }
   };
 

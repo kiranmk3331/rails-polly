@@ -68,6 +68,13 @@ const Dashboard = () => {
       <h1 className="text-xl leading-5 text-center">
         You have no polls assigned 😔
       </h1>
+      <Button
+        size="small"
+        type="link"
+        path={`/polls/new`}
+        buttonText="Create"
+        iconClass="ri-add-line"
+      />
     </Container>
   );
 };
