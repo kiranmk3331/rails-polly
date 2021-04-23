@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const create = id => axios.put(`/options/${id}`);
+const count = (poll_id, id) => axios.put(`/polls/${poll_id}/options/${id}`);
 
 const optionsApi = {
-  create,
+  count,
 };
 
 export default optionsApi;

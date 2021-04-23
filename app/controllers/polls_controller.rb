@@ -71,6 +71,4 @@ class PollsController < ApplicationController
   rescue ActiveRecord::RecordNotFound => errors
     render json: { errors: errors }
   end
-
- 
 end

@@ -38,8 +38,9 @@ const ShowPoll = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      await optionsApi.create(votedOptionId);
+      await optionsApi.count(id, votedOptionId);
       setLoading(false);
+      setIsVoted(true);
       fetchPollDetails();
     } catch (error) {
       Logger.error(error);
@@ -47,14 +48,14 @@ const ShowPoll = () => {
     }
   };
 
-  // const getVotePercentage = (optionId) => {
-  //   if (!votes.length) {
-  //     return "0";
-  //   }
-  //   const filteredVotes = votes.filter((v) => v.option_id == optionId);
-  //   const percentage = (filteredVotes.length / votes.length) * 100;
-  //   return percentage % 1 ? percentage.toFixed(2) : percentage;
-  // };
+  const getVotePercentage = optionId => {
+    if (!votes.length) {
+      return "0";
+    }
+    // const filteredVotes = votes.filter((v) => v.option_id == optionId);
+    // const percentage = (filteredVotes.length / votes.length) * 100;
+    // return percentage % 1 ? percentage.toFixed(2) : percentage;
+  };
 
   useEffect(() => {
     fetchPollDetails();

@@ -23,14 +23,14 @@ const Dashboard = () => {
     }
   };
 
-  //   const destroyPoll = async (id) => {
-  //     try {
-  //       await pollsApi.destroy(id);
-  //       await fetchPolls();
-  //     } catch (error) {
-  //       logger.error(error);
-  //     }
-  //   };
+  const destroyPoll = async id => {
+    try {
+      await pollsApi.destroy(id);
+      await fetchPolls();
+    } catch (error) {
+      logger.error(error);
+    }
+  };
 
   useEffect(() => {
     fetchPolls();
@@ -58,7 +58,7 @@ const Dashboard = () => {
           />
         </div>
 
-        <ListPolls data={polls} />
+        <ListPolls data={polls} destroyPoll={destroyPoll} />
       </Container>
     );
   }
