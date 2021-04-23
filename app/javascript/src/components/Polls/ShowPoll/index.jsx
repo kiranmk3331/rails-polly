@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { getFromLocalStorage } from "helpers/storage";
 import { logger } from "common/logger";
 import pollsApi from "apis/polls";
 
@@ -12,16 +11,25 @@ import PageLoader from "components/PageLoader";
 import optionsApi from "../../../apis/option";
 import Logger from "js-logger";
 
+import { round } from "../../../helpers/utils";
+
 const ShowPoll = () => {
   const { id } = useParams();
-  const userId = getFromLocalStorage("authUserId");
   const [title, setTitle] = useState("");
   const [options, setOptions] = useState([]);
   const [votedOptionId, setVotedOptionId] = useState(null);
   const [loading, setLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
   const [isVoted, setIsVoted] = useState(false);
-  const [votes, setVotes] = useState([]);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let current_count = 0;
+    options.map(option => {
+      current_count += parseInt(option.click_count);
+    });
+    setCount(current_count);
+  }, [options]);
 
   const fetchPollDetails = async () => {
     try {
@@ -48,13 +56,11 @@ const ShowPoll = () => {
     }
   };
 
-  const getVotePercentage = optionId => {
-    if (!votes.length) {
+  const getVotePercentage = currentCount => {
+    if (count === 0) {
       return "0";
     }
-    // const filteredVotes = votes.filter((v) => v.option_id == optionId);
-    // const percentage = (filteredVotes.length / votes.length) * 100;
-    // return percentage % 1 ? percentage.toFixed(2) : percentage;
+    return round((parseInt(currentCount) / count) * 100, 2);
   };
 
   useEffect(() => {
@@ -77,7 +83,6 @@ const ShowPoll = () => {
               key={option.id}
               option={option}
               votedOptionId={votedOptionId}
-              isVoted={isVoted}
               setVotedOptionId={setVotedOptionId}
               getVotePercentage={getVotePercentage}
             />
