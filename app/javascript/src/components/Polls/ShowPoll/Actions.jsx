@@ -9,7 +9,7 @@ const Actions = ({ isVoted, loading, handleSubmit }) => {
       <div className="px-6 text-center">
         <p className="py-2 text-xl font-medium">Thanks for voting! 🎉</p>
         <Link
-          className="text-bb-purple hover:text-purple-500 focus:underline
+          className="text-bb-blue hover:text-blue-500 focus:underline
           hover:underline"
           to="/"
         >

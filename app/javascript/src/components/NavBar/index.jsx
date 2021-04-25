@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import authApi from "apis/auth";
 import { getFromLocalStorage, setToLocalStorage } from "helpers/storage";
-import { logger } from "common/logger";
 import { resetAuthTokens } from "apis/axios";
 import Logger from "js-logger";
 
@@ -28,7 +27,7 @@ const NavBar = ({ isLoggedIn }) => {
   };
 
   return (
-    <nav className="bg-white border-b">
+    <nav className="bg-blue-200 border-b">
       <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <h1 className="font-sans text-3xl font-semibold">
@@ -40,9 +39,9 @@ const NavBar = ({ isLoggedIn }) => {
             {isLoggedIn ? (
               <>
                 <span
-                  className="inline-flex items-center px-2 pt-1 text-md font-regular leading-5 text-bb-gray-600
+                  className="inline-flex items-center px-2 pt-1 text-md font-regular leading-5 text-black-600
                   text-opacity-50 transition duration-150 ease-in-out border-b-2 border-transparent focus:outline-none
-                  focus:text-bb-gray-700"
+                  focus:text-bb-gray-900"
                 >
                   {userName}
                 </span>
@@ -52,7 +51,7 @@ const NavBar = ({ isLoggedIn }) => {
                   font-semibold leading-5 text-bb-gray-600 text-opacity-50
                   transition duration-150 ease-in-out border-b-2
                   border-transparent hover:text-bb-gray-600 focus:outline-none
-                  focus:text-bb-gray-700 cursor-pointer"
+                  focus:text-bb-gray-900 cursor-pointer"
                 >
                   LogOut
                 </a>
@@ -64,7 +63,7 @@ const NavBar = ({ isLoggedIn }) => {
                 font-semibold leading-5 text-bb-gray-600 text-opacity-50
                 transition duration-150 ease-in-out border-b-2
                 border-transparent hover:text-bb-gray-600 focus:outline-none
-                focus:text-bb-gray-700 cursor-pointer"
+                focus:text-bb-gray-900 cursor-pointer"
               >
                 Login
               </Link>

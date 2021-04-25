@@ -1,4 +1,4 @@
-class PollsController < ApplicationController
+class Api::PollsController < ApplicationController
   after_action :verify_authorized, only: %i[update destroy]
   before_action :authenticate_user_using_x_auth_token, except: :index
   before_action :load_poll, only: %i[show update destroy]

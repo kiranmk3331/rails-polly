@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-import { logger } from "common/logger";
 import pollsApi from "apis/polls";
-
 import Actions from "./Actions";
 import Container from "components/Container";
 import Option from "./Option";
 import PageLoader from "components/PageLoader";
 import optionsApi from "../../../apis/option";
 import Logger from "js-logger";
-
 import { round } from "../../../helpers/utils";
 
 const ShowPoll = () => {
@@ -37,7 +33,7 @@ const ShowPoll = () => {
       setTitle(response.data.poll.title);
       setOptions(response.data.options);
     } catch (error) {
-      logger.error(error);
+      Logger.error(error);
     } finally {
       setPageLoading(false);
     }
@@ -74,7 +70,7 @@ const ShowPoll = () => {
   return (
     <Container>
       <div className="w-3/4 mx-auto shadow-2xl rounded-lg py-6 mt-10">
-        <h1 className="pb-4 px-6 text-xl font-bold border-b text-bb-purple">
+        <h1 className="pb-4 px-6 text-xl font-bold border-b text-bb-blue">
           {title}
         </h1>
         <ul className="mb-6 mt-3 px-6">

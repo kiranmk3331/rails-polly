@@ -28,7 +28,7 @@ const SignupForm = ({
           <Link
             to="/"
             className="mt-2 text-sm font-medium text-center
-            text-bb-purple transition duration-150 ease-in-out
+            text-bb-blue transition duration-150 ease-in-out
             focus:outline-none focus:underline"
           >
             Or Login Now

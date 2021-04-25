@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import { getFromLocalStorage } from "helpers/storage";
-
 import Button from "components/Button";
 
 const Actions = ({ destroyPoll, pollId, pollUserId }) => {

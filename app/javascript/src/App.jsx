@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import { logger } from "common/logger";
 import { initializeLogger } from "common/logger";
 import { ToastContainer } from "react-toastify";
 import { registerIntercepts, setAuthHeaders } from "apis/axios";
@@ -12,7 +11,6 @@ import PageLoader from "components/PageLoader";
 import CreatePoll from "components/Polls/CreatePoll";
 import EditPoll from "components/Polls/EditPoll";
 import NavBar from "components/NavBar";
-
 import PrivateRoute from "components/Common/PrivateRoute";
 import { getFromLocalStorage } from "./helpers/storage";
 import ShowPoll from "./components/Polls/ShowPoll";
@@ -26,7 +24,6 @@ const App = () => {
     initializeLogger();
     registerIntercepts();
     setAuthHeaders(setLoading);
-    // logger.info("Log from js-logger");
   }, []);
 
   if (loading) {
@@ -59,7 +56,6 @@ const AuthenticatedRoutes = ({ isLoggedIn }) => {
       <Route exact path="/polls/new" component={CreatePoll} />
       <Route exact path="/polls/:id/show" component={ShowPoll} />
       <Route exact path="/polls/:id/edit" component={EditPoll} />
-      {/* <Route exact path="*" component={NoMatch} /> */}
     </Switch>
   );
 };

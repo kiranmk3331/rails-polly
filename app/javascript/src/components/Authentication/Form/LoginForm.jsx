@@ -20,9 +20,9 @@ const LoginForm = ({ handleSubmit, setEmail, setPassword, loading }) => {
         <div className="text-center">
           <Link
             to="/signup"
-            className="mt-2 text-sm font-medium text-bb-purple
+            className="mt-2 text-sm font-medium text-bb-blue
             transition duration-150 ease-in-out focus:outline-none
-            focus:underline hover:text-purple-600 hover:underline"
+            focus:underline hover:text-blue-600 hover:underline"
           >
             Or Register Now
           </Link>

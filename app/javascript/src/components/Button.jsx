@@ -16,8 +16,8 @@ const Button = ({
       <Link
         to={path}
         className={`inline-block relative px-5 py-2 text-sm font-medium
-          transition duration-150 ease-in-out bg-bb-purple border hover:shadow-md
-          border-transparent group hover:bg-purple-600 focus:outline-none leading-5
+          transition duration-150 ease-in-out bg-bb-blue border hover:shadow-md
+          border-transparent group hover:bg-blue-600 focus:outline-none leading-5
           text-white ${
       size === "small" ? "w-max rounded" : "w-full rounded-md"
       }`}
@@ -38,8 +38,8 @@ const Button = ({
       onClick={onClick}
       className={`relative flex justify-center px-5 py-2 inline-block
         text-sm font-medium leading-5 text-white transition duration-150
-        ease-in-out bg-bb-purple border border-transparent 
-        group hover:bg-purple-600 focus:outline-none hover:shadow-md
+        ease-in-out bg-bb-blue border border-transparent 
+        group hover:bg-blue-600 focus:outline-none hover:shadow-md
         ${size === "small" ? "w-max rounded" : "w-full rounded-md"}`}
     >
       {iconClass ? <i className={`${iconClass} pr-1`}></i> : ""}
