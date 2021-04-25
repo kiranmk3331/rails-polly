@@ -39,15 +39,15 @@ const App = () => {
       <ToastContainer />
       <NavBar isLoggedIn={isLoggedIn} />
       {isLoggedIn ? (
-        <AuthenticatedRoutes isLoggedIn={isLoggedIn} />
+        <LoggedInRoutes isLoggedIn={isLoggedIn} />
       ) : (
-        <UnAuthenticatedRoutes isLoggedIn={isLoggedIn} />
+        <NotLoggedInRoutes isLoggedIn={isLoggedIn} />
       )}
     </Router>
   );
 };
 
-const AuthenticatedRoutes = ({ isLoggedIn }) => {
+const LoggedInRoutes = ({ isLoggedIn }) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -60,7 +60,7 @@ const AuthenticatedRoutes = ({ isLoggedIn }) => {
   );
 };
 
-const UnAuthenticatedRoutes = ({ isLoggedIn }) => {
+const NotLoggedInRoutes = ({ isLoggedIn }) => {
   return (
     <Switch>
       <Route exact path="/">
