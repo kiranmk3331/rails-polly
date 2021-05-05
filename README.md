@@ -1,7 +1,7 @@
 [![kiranmk3331](https://circleci.com/gh/kiranmk3331/rails-polly.svg?style=shield)](https://app.circleci.com/pipelines/github/kiranmk3331/rails-polly)
 <br/>
 
-# [Citly](https://immense-island-91690.herokuapp.com/)
+# [Polly](https://immense-island-91690.herokuapp.com/)
 
 ### Create and vote polls with options in this app .
 
