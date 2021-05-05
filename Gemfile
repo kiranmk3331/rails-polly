@@ -59,4 +59,6 @@ gem "react-rails"
 gem "bcrypt", "~> 3.1.13"
 gem "pundit"
 gem "rexml"
+gem "bundler-audit", require: false
+gem "ruby_audit", require: false
 
