@@ -20,7 +20,7 @@ class PollTest < ActiveSupport::TestCase
     assert_not_instance_of Poll, @user
   end
 
-  test "title of the poll" do
+  test "poll returns correct title" do
     assert_equal "First poll title", @poll.title
   end
 
