@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: %i[create]
     resources :sessions, only: %i[create destroy]
   end
-  put "/polls/:poll_id/options/:id", to: "options#count"
+  put "/polls/:poll_id/options/:id", to: "options#update"
 
   root "home#index"
   get "*path", to: "home#index", via: :all
