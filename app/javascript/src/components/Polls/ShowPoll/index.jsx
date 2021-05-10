@@ -42,7 +42,7 @@ const ShowPoll = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     try {
-      await optionsApi.count(id, votedOptionId);
+      await optionsApi.update(id, votedOptionId);
       setLoading(false);
       setIsVoted(true);
       fetchPollDetails();
